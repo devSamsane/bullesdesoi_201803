@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "server": "./node_modules/.bin/nodemon -w ./server --ext \".ts\" --exec \"npm run start-server\"",
+    "start-server": "./node_modules/.bin/ts-node server.ts",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
@@ -22,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^5.2.6",
     "@angular/router": "^5.2.6",
     "core-js": "^2.5.3",
+    "express": "^4.16.2",
+    "nodemon": "^1.15.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.20"
   },
@@ -41,7 +45,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.3.0",
-    "ts-node": "~5.0.0",
+    "ts-node": "^5.0.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
   }
