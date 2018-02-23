@@ -7,6 +7,8 @@ const server = app.listen(config.port, config.host, (error) => {
   if (error) {
     return console.log(error);
   }
+  // TODO: Retirer le console.log(config)
+  console.log(config);
   console.log('---');
   console.log(config.app.title);
   console.log();
