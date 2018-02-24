@@ -21,6 +21,10 @@ export const initMiddlewares = (app: express.Application) => {
   // Ajout des répertoires statiques
   app.use(express.static(path.join(__dirname, 'public')));
 
+  // Configuration du viewer pug
+  app.set('views', path.resolve('views'));
+  app.set('view engine', 'pug');
+
   // Initialisation du logger
   app.use(logger('dev'));
 

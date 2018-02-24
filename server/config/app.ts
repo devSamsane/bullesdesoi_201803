@@ -1,3 +1,4 @@
+import { IndexRoute } from './../modules/core/routes/core.route';
 import * as express from 'express';
 import * as path from 'path';
 import * as http from 'http';
@@ -49,11 +50,9 @@ export class Server {
 
     const router = express.Router();
 
-    router.get('/', (req, res) => {
-      res.json({ message: 'Bulles de soi' });
-    });
+    IndexRoute.create(router);
 
-    this.app.use('/', router);
+    this.app.use(router);
 
   }
 
