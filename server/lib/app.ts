@@ -1,9 +1,11 @@
-import { IndexRoute } from './../modules/core/routes/core.route';
 import * as express from 'express';
 import * as path from 'path';
 import * as http from 'http';
+import { Request, Response } from 'express';
 
-import { initMiddlewares } from './helpers/app-middleware';
+// const expressApplication = require('./services/express.service');
+import { ExpressMiddlewares } from './services/express-middlewares.service';
+const expressMiddlewares = new ExpressMiddlewares();
 
 /**
  * Définition du Server
@@ -22,10 +24,10 @@ export class Server {
     this.app = express();
 
     // Initialisation des middlewares
-    initMiddlewares(this.app);
+    this.middlewares(this.app);
 
     // Injection des routes
-    this.mountRoutes();
+    this.routes();
   }
 
   /**
@@ -39,22 +41,31 @@ export class Server {
     return new Server();
   }
 
+  /**
+   * Exposition de l'initialisation middlewares
+   * @method middlewares
+   * @private
+   * @param {express.Application} app
+   * @memberof Server
+   */
+  private middlewares(app: express.Application): void {
+    expressMiddlewares.init(app);
+  }
 
   /**
    * Initialisation des routes
-   * @method mountRoutes
+   * @method routes
    * @private
    * @memberof Server
    */
-  private mountRoutes(): void {
+  private routes(): void {
 
     const router = express.Router();
-
-    IndexRoute.create(router);
+    router.get('/', (req: Request, res: Response) => {
+      res.json({ message: 'backend Bulles de Soi'});
+    });
 
     this.app.use(router);
-
   }
 
 }
-

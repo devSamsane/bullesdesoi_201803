@@ -8,6 +8,15 @@ const defaultProperties = {
     },
     server: {
       livereload: false
+    },
+    config: {
+      helmet: {
+        hsts: {
+          expiration: 15778476000,
+          includeSubdomains: true,
+          force: true
+        }
+      }
     }
   }
 };

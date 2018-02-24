@@ -3,10 +3,10 @@ import * as _ from 'lodash';
 import * as fs from 'fs';
 import * as glob from 'glob';
 
-import { exportDefaultProperties } from '../properties/default.properties';
-import { exportDevProperties } from '../properties/development.properties';
-import { exportProdProperties } from '../properties/production.properties';
-import { exportAssets } from '../assets/default.assets';
+import { exportDefaultProperties } from './env/default.properties';
+import { exportDevProperties } from './env/development.properties';
+import { exportProdProperties } from './env/production.properties';
+import { exportAssets } from './assets/default.assets';
 
 let env;
 let propertiesFile;
@@ -128,4 +128,3 @@ const initGlobalProperties: any = () => {
 };
 
 export const properties = initGlobalProperties();
-

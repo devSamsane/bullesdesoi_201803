@@ -1,8 +1,7 @@
 const chalk = require('chalk');
-// import * as chalk from 'chalk';
 
-import { properties } from './../config/helpers/app-properties';
-import { Server } from './../config/app';
+import { properties } from './server/lib/config/index';
+import { Server } from './server/lib/app';
 
 const app = Server.bootstrap().app;
 
