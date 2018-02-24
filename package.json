@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start-server": "NODE_ENV=development ./node_modules/.bin/ts-node ./server/www/server.ts",
+    "server": "./node_modules/.bin/nodemon -w ./server --ext \".ts\" --exec \"npm run start-server\"",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
