@@ -87,7 +87,6 @@ const validateEnvironementDefinition: any = () => {
     console.warn(`Application par défaut de l'environnement de développement`);
     process.env.NODE_ENV = 'development';
   }
-  console.log(`Vérification configuration environnement ok - ${process.env.NODE_ENV}`);
   env = process.env.NODE_ENV;
 
   propertiesFile = choosePropertiesFile(env);
@@ -123,8 +122,6 @@ const initGlobalProperties: any = () => {
 
   // Initialisation des fichiers
   initGlobalPropFiles(initProperties, assets);
-
-  console.log(initProperties);
 
   return initProperties;
 
