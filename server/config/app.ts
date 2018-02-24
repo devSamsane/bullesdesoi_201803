@@ -2,7 +2,6 @@ import * as express from 'express';
 import * as path from 'path';
 import * as http from 'http';
 
-import * as properties from './properties/dev.properties';
 import { initMiddlewares } from './helpers/app-middleware';
 
 /**
@@ -14,8 +13,10 @@ export class Server {
 
   // Définition de la variable app
   public app: express.Application;
+  public properties;
 
   constructor() {
+
     // Création de l'application express
     this.app = express();
 
