@@ -3,6 +3,7 @@ import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 import * as compress from 'compression';
 import * as helmet from 'helmet';
+import * as logger from 'morgan';
 import * as path from 'path';
 
 
@@ -19,6 +20,9 @@ export const initMiddlewares = (app: express.Application) => {
 
   // Ajout des répertoires statiques
   app.use(express.static(path.join(__dirname, 'public')));
+
+  // Initialisation du logger
+  app.use(logger('dev'));
 
   // Initialisation body-parser
   app.use(bodyParser.urlencoded({ extended: true }));
