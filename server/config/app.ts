@@ -1,11 +1,9 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as cookieParser from 'cookie-parser';
-import * as compress from 'compression';
 import * as path from 'path';
 import * as http from 'http';
 
 import * as properties from './properties/dev.properties';
+import { initMiddlewares } from './helpers/app-middleware';
 
 /**
  * Définition du Server
@@ -21,12 +19,11 @@ export class Server {
     // Création de l'application express
     this.app = express();
 
+    // Initialisation des middlewares
+    initMiddlewares(this.app);
+
     // Injection des routes
     this.mountRoutes();
-
-    // Initialisation des middlewares
-    this.middlewares();
-
   }
 
   /**
@@ -40,39 +37,6 @@ export class Server {
     return new Server();
   }
 
-  /**
-   * Initialisation des middlewares
-   * @method middlewares
-   * @private
-   * @memberof Server
-   */
-  private middlewares() {
-
-    // Initialisation compression
-    this.app.use(compress({ filter: (req, res) => {
-      return /json|text|javascript|css|font|svg/.test(res.getHeader('Content-Type'));
-    },
-    level: 9
-    }));
-
-    // Ajout des répertoires statiques
-    this.app.use(express.static(path.join(__dirname, 'public')));
-
-    // Initialisation body-parser
-    this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(bodyParser.json());
-
-    // Initialisation cookie-parser
-    this.app.use(cookieParser());
-
-    // Autorisation Access-Control-Allow-Origin
-    this.app.use((req, res, next) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Headers', 'Origin X-Requested-With Content-Type');
-      next();
-    });
-
-  }
 
   /**
    * Initialisation des routes
@@ -85,7 +49,7 @@ export class Server {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-      res.json({ message: 'Hello World' });
+      res.json({ message: 'Bulles de soi' });
     });
 
     this.app.use('/', router);
