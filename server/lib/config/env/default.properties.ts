@@ -16,6 +16,15 @@ const defaultProperties = {
           includeSubdomains: true,
           force: true
         }
+      },
+      log: {
+        fileLogger: {
+          directoryPath: process.env.LOG_DIR_PATH || process.cwd(),
+          filename: process.env.LOG_FILE || 'app-log.json',
+          maxsize: 10485760,
+          maxFiles: 2,
+          json: true
+        }
       }
     }
   }

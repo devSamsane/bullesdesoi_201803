@@ -4,7 +4,11 @@ import * as http from 'http';
 import { Request, Response } from 'express';
 
 import { ExpressMiddlewares } from './services/express-middlewares.service';
+import { Logger } from './services/logger.service';
+
 const expressMiddlewares = new ExpressMiddlewares();
+const expressLogger = new Logger().logExpress();
+
 
 /**
  * Définition du Server
@@ -21,6 +25,9 @@ export class Server {
 
     // Création de l'application express
     this.app = express();
+
+    // Initialisation du logger
+    this.app.use(expressLogger);
 
     // Initialisation des middlewares
     this.middlewares(this.app);

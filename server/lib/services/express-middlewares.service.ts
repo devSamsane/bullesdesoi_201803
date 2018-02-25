@@ -52,9 +52,6 @@ export class ExpressMiddlewares {
       level: 9
     }));
 
-    // Initialisation du middleware: MORGAN
-    app.use(logger('dev'));
-
     // Initialisation du middleware: BODY-PARSER
     app.use(bodyParser.urlencoded({
       extended: true
