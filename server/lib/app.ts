@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as http from 'http';
 import { Request, Response } from 'express';
 
-// const expressApplication = require('./services/express.service');
 import { ExpressMiddlewares } from './services/express-middlewares.service';
 const expressMiddlewares = new ExpressMiddlewares();
 
