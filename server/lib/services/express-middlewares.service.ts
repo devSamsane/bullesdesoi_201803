@@ -46,8 +46,9 @@ export class ExpressMiddlewares {
     // Initialisation du middleware: COMPRESSION
     app.use(compress({
       filter: (req: Response, res: Response) => {
-        // tslint:disable-next-line
-        return (/json|text|javascript|css|font|svg/).test(res.getHeader('Content-Type'));
+        const filterHeader: RegExp = /json|text|javascript|css|font|svg/;
+        const header = res.getHeader('Content-Type');
+        return filterHeader.test(header.toString());
       },
       level: 9
     }));
