@@ -20,7 +20,6 @@ export class Logger {
 
     // Définition du noeud de configuration log des properties
     const loggerProperties = _properties.config.log.fileLogger;
-    console.log(loggerProperties);
 
     // Vérification que le noeud est renseigné
     if (!_.has(_properties, 'config.log.fileLogger.directoryPath') || !_.has(
@@ -32,7 +31,6 @@ export class Logger {
 
     // Paramétrage du répertoire et du fichier de log
     const loggerPath = `${loggerProperties.directoryPath}/${loggerProperties.filename}`;
-    console.log(loggerPath);
 
     // Instanciation du fichier de log
     if (!fs.openSync(loggerPath, 'a+')) {

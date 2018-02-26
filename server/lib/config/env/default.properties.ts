@@ -25,6 +25,10 @@ const defaultProperties = {
           maxFiles: 2,
           json: true
         }
+      },
+      db: {
+        promise: global.Promise,
+        options: {}
       }
     }
   }

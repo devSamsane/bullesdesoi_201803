@@ -1,14 +1,17 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as http from 'http';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
+import * as mongoose from 'mongoose';
 
 import { ExpressMiddlewares } from './services/express-middlewares.service';
 import { Logger } from './services/logger.service';
+import { MongooseService } from './services/mongoose.service';
+import { connection } from 'mongoose';
 
 const expressMiddlewares = new ExpressMiddlewares();
 const expressLogger = new Logger().logExpress();
-
+const dbConnection = new MongooseService();
 
 /**
  * Définition du Server
@@ -29,6 +32,10 @@ export class Server {
     // Initialisation du logger
     this.app.use(expressLogger);
 
+    // Initialisation de la connexion mongoose
+    this.startMongoose();
+    this.initializeModels();
+
     // Initialisation des middlewares
     this.middlewares(this.app);
 
@@ -45,6 +52,20 @@ export class Server {
   */
   public static bootstrap(): Server {
     return new Server();
+  }
+
+  /**
+   *
+   *
+   * @private
+   * @memberof Server
+   */
+  private startMongoose() {
+    dbConnection.connect();
+  }
+
+  private initializeModels() {
+    dbConnection.loadModels();
   }
 
   /**
