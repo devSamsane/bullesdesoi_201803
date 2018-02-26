@@ -1,11 +1,11 @@
 <mat-sidenav-container class="bds-background">
   <mat-sidenav #sidenav role="navigation">
-    <h3>menu</h3>
+    <bds-sidenav-menu (closeSidenav)="sidenav.close()"></bds-sidenav-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <bds-header (isSidenavToggle)="sidenav.toggle()"></bds-header>
     <main>
-      <h3>main content: router oulet</h3>
+      <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
