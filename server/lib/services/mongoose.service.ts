@@ -2,12 +2,19 @@ import mongoose = require('mongoose');
 import { Model } from 'mongoose';
 import * as chalk from 'chalk';
 
-import { UserInterface } from './../../modules/user/models/interfaces/user';
-
 import { ModelInterface } from './../interfaces/models.interfaces';
+
+import { UserInterface } from './../../modules/user/models/interfaces/user';
+import { SeanceInterface } from './../../modules/seance/models/interfaces/seance';
+
 import { UserModelInterface } from './../../modules/user/models/user';
+import { SeanceModelInterface } from './../../modules/seance/models/seance';
 
 import { userSchema } from './../../modules/user/models/schemas/user';
+import { seanceSchema } from './../../modules/seance/models/schemas/seance';
+import { sophronisationSchema } from './../../modules/sophronisation/models/schemas/sophronisation';
+import { relaxationSchema } from '../../modules/relaxation/models/schemas/relaxation';
+import { appointmentSchema } from './../../modules/appointment/models/schemas/appointment';
 
 import { properties } from './../config/index';
 import { connection } from 'mongoose';
@@ -16,7 +23,8 @@ export class MongooseService {
 
   // Instance des models
   private model: ModelInterface;
-  private uri = properties.config.db.uri;
+  // private uri = properties.config.db.uri;
+  private uri: string = properties.config.db.uri;
 
   constructor() {
     // Instance par défaut
@@ -28,18 +36,22 @@ export class MongooseService {
     // tslint:disable-next-line: no-shadowed-variable
     const connection = mongoose.createConnection(this.uri);
     const User = connection.model('User', userSchema);
-
+    const Seance = connection.model('Seance', seanceSchema);
+    const Relaxation = connection.model('Relaxation', relaxationSchema);
+    const Sophronisation = connection.model('Sophronisation', sophronisationSchema);
+    const Appointment = connection.model('Appointment', appointmentSchema);
   }
 
   public connect(): any {
     return new Promise((resolve, reject) => {
       mongoose.Promise = properties.config.db.promise;
-      const mongoOptions: any = { ...properties.config.db.options };
-      // tslint:disable-next-line: strict-type-predicates use-isnan
+      const mongoOptions = { ...properties.config.db.options };
+      // tslint:disable-next-line
       mongoose.connect(this.uri, mongoOptions)
         .then(() => {
           // Activation du mode debug si nécessaire
           mongoose.set('debug', properties.config.db.debug);
+          resolve(mongoose);
         })
         .catch(error => {
           console.error(chalk.red('Erreur: Echec de la connection à mongoDB'));
@@ -53,17 +65,31 @@ export class MongooseService {
 
 }
 
-(async () => {
-  // tslint:disable-next-line: no-shadowed-variable prefer-const
-  let connection: mongoose.Connection = mongoose.createConnection(properties.config.db.uri);
-  // tslint:disable-next-line: prefer-const
-  let User: mongoose.Model<UserModelInterface> = connection.model<UserModelInterface>('User', userSchema);
-  const u: UserInterface = ({
-    email: 'test@test.com',
-    firstName: 'test',
-    lastName: 'test2',
-    createdAt: new Date()
-  });
-  await new User(u).save();
-})();
+// (async () => {
+//   // tslint:disable-next-line: no-shadowed-variable prefer-const
+//   let connection: mongoose.Connection = mongoose.createConnection(properties.config.db.uri);
+//   // tslint:disable: prefer-const
+//   let User: mongoose.Model<UserModelInterface> = connection.model<UserModelInterface>('User', userSchema);
+//   let Seance: mongoose.Model<SeanceModelInterface> = connection.model<SeanceModelInterface>('Seance', seanceSchema);
+//   const u: UserInterface = ({
+//     email: 'test@test.com',
+//     firstName: 'test',
+//     lastName: 'test2',
+//     displayName: 'test test2',
+//     phone: '066000000',
+//     password: 'totototo',
+//     provider: 'local',
+//     roles: ['user'],
+//     created: Date.now(),
+//     hasResetInProgress: false,
+//     status: 'active'
+//   });
+//   const s: SeanceInterface = ({
+//     intention: 'intention',
+//     rang: 2,
+//     created: Date.now(),
+//   });
+//   await new User(u).save();
+//   await new Seance(s).save();
+// })();
 
