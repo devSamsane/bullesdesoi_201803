@@ -55,18 +55,23 @@ export class Server {
   }
 
   /**
-   *
-   *
+   *Initialisation de l'instance mongoose
+   *@method startMongoose
    * @private
    * @memberof Server
    */
   private startMongoose() {
     dbConnection.connect();
   }
-
+  /**
+   * Initialisation des models
+   * @method initializeModels
+   * @private
+   * @memberof Server
+   */
   private initializeModels() {
-    dbConnection.loadModels();
-  }
+      dbConnection.loadModels();
+    }
 
   /**
    * Exposition de l'initialisation middlewares
