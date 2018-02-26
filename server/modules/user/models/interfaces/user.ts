@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 /**
  * Interface User
  * @export
@@ -20,4 +22,5 @@ export interface UserInterface {
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
   status: string[];
+  seances?: Types.ObjectId[];
 }

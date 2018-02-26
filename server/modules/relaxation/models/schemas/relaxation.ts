@@ -1,6 +1,14 @@
 import { Schema } from 'mongoose';
 
 export let relaxationSchema = new Schema ({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  seance: {
+    type: Schema.Types.ObjectId,
+    ref: 'Seance'
+  },
   intitule: {
     type: String,
     required: true

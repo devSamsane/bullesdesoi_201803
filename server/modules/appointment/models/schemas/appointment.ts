@@ -17,6 +17,10 @@ export let appointmentSchema = new Schema({
   subject: {
     type: String,
     required: false
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 
 });

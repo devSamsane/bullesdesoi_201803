@@ -1,6 +1,10 @@
 import { Schema } from 'mongoose';
 
 export let seanceSchema: Schema = new Schema ({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   intention: {
     type: String,
     required: true
@@ -16,6 +20,14 @@ export let seanceSchema: Schema = new Schema ({
   },
   updated: {
     type: Date
-  }
+  },
+  relaxations: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Relaxation'
+  }],
+  sophronisations: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Sophronisation'
+  }]
 
 });
