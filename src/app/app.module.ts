@@ -15,7 +15,10 @@ import { SigninComponent } from './authentication/signin/signin.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { PerinataliteComponent } from './pages/applications/perinatalite/perinatalite.component';
 
+import { ComponentPageTitle } from './shared/page-title/page-title';
 import { NavigationItems } from './shared/nav-items/nav-items';
+import { SidenavLogoComponent } from './navigation/sidenav-logo/sidenav-logo.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { NavigationItems } from './shared/nav-items/nav-items';
     SignupComponent,
     SigninComponent,
     SidenavComponent,
-    PerinataliteComponent
+    PerinataliteComponent,
+    SidenavLogoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { NavigationItems } from './shared/nav-items/nav-items';
     AppRoutingModule,
     MaterialModule
   ],
-  providers: [NavigationItems],
+  providers: [NavigationItems, ComponentPageTitle],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
