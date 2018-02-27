@@ -18,7 +18,7 @@
       </button>
       <ul [@bodyExpansion]="_getExpandedState(category.id)" id="panel-{{category.id}}">
         <li *ngFor="let item of category.items">
-          <a [routerLink]="item.route" (click)="sidenavClose()"> {{ item.name }}
+          <a [routerLink]="item.route" routerLinkActive="bds-nav-item-selected" (click)="sidenavClose()"> {{ item.name }}
           </a>
         </li>
       </ul>

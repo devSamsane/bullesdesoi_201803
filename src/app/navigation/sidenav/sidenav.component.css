@@ -4,4 +4,16 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 mat-sidenav {
   width: 272px;
+  background-color: #311b92;
+  color: whitesmoke;
+}
+
+bds-sidenav-logo:focus {
+  outline: none;
+}
+
+bds-footer {
+  min-height: 300px;
+  background: #4527A0;
+  color: #ECEFF1;
 }
