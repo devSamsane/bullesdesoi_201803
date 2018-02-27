@@ -1,0 +1,48 @@
+.doc-component-viewer-nav {
+  display: flex
+}
+
+button {
+  padding: 10px 15px;
+  font-weight: 700;
+  line-height: 16px;
+  margin: 0;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+
+}
+
+button:focus {
+  outline: none;
+}
+
+button mat-icon {
+  position: absolute;
+  right: 5px;
+  font-size: 18px;
+}
+
+ul {
+  list-style-type: none;
+  margin: -5px 0 5px 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  padding: 5px 15px 5px 20px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
