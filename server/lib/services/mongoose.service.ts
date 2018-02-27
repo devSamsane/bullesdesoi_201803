@@ -85,6 +85,7 @@ export class MongooseService {
 //     status: 'active'
 //   });
 //   const s: SeanceInterface = ({
+//     user: '5a945a1781f620166fe9dbab',
 //     intention: 'intention',
 //     rang: 2,
 //     created: Date.now(),
