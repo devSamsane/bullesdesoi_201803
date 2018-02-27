@@ -48,3 +48,6 @@ app-log.json
 # properties
 ./server/lib/config/env/production.properties.ts
 chalkConf.txt
+
+# assets
+/src/assets/pictures/*
