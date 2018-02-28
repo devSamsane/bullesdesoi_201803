@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'bds-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 

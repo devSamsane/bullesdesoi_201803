@@ -6,7 +6,7 @@ import { ComponentPageTitle } from './../../shared/page-title/page-title';
 @Component({
   selector: 'bds-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 

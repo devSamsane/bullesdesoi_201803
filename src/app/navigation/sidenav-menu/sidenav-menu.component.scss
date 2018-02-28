@@ -1,3 +1,6 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
 .doc-component-viewer-nav {
   display: flex
 }
@@ -15,7 +18,7 @@ button {
   text-align: left;
   background: none;
   border: none;
-  color: whitesmoke;
+  color: mat-color($mat-blue-grey, 50);
 
 }
 
@@ -34,7 +37,7 @@ ul {
   margin: -5px 0 5px 0;
   padding: 0;
   overflow: hidden;
-  background-color: #ede7f6;
+  background-color: mat-color($bds-primary, 50);
 }
 
 li {

@@ -15,7 +15,7 @@ import { NavigationItems, NavCategory } from './../../shared/nav-items/nav-items
 @Component({
   selector: 'bds-sidenav-menu',
   templateUrl: './sidenav-menu.component.html',
-  styleUrls: ['./sidenav-menu.component.css'],
+  styleUrls: ['./sidenav-menu.component.scss'],
   animations: [
     trigger('bodyExpansion', [
       state('collapsed', style({height: '0px', visibility: 'hidden'})),

@@ -2,10 +2,11 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$bds-primary: mat-palette($mat-deep-purple);
+$bds-primary: mat-palette($mat-deep-purple, 500, 100, 700);
 $bds-accent: mat-palette($mat-lime, A200, A100, A400);
 $bds-warn: mat-palette($mat-pink);
-$background: map-get($mat-deep-purple, 200);
+// $background: map-get($mat-deep-purple, 50);
+// $foreground: map-get($mat-grey, 800);
 
 // Déclaration du theme
 $theme: mat-light-theme($bds-primary, $bds-accent, $bds-warn);
@@ -13,38 +14,9 @@ $background: map-get($theme, background);
 @include angular-material-theme($theme);
 
 
-.bds-background {
-  background-color: #ede7f6;
-}
+// .bds-background {
+//   background-color: #ede7f6;
+// }
 
 
-/*
- * Actual Sticky Footer Styles
- */
- .all-wrap {
-  min-height: 100vh;
-}
-
-.page-wrap {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex: 1;
-}
-
-
-/*
- * Make the Component injected by Router Outlet full height:
- */
-main {
-  display: flex;
-  flex-direction: column;
-  > *:not(router-outlet) {
-    flex: 1;
-    display: block;
-  }
-}
 

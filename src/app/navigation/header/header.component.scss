@@ -1,0 +1,13 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.bds-bg-color-toolbar {
+  background: mat-color($bds-primary, 700);
+  color: mat-color($mat-blue-grey, 50);
+}
+
+.title {
+  font-family: "Merienda One", cursive !important;
+  font-size: 24px;
+}
+
