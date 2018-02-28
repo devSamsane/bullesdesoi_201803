@@ -30,7 +30,7 @@ const SECTIONS: { [key: string]: NavCategory[] } = {
       type: 'toggle',
       route: '/applications',
       items: [
-        { id: 'perinatalite', name: 'Périnatalité', type: 'link', route: '/perinatalite' },
+        { id: 'perinatalite', name: 'Périnatalité', type: 'link', route: '/applications/perinatalite' },
         { id: 'enfance', name: 'Enfance', type: 'link', route: '/applications/enfance' },
         { id: 'adolescence', name: 'Adolescence', type: 'link', route: '/applications/adolescence' },
         { id: 'adulte', name: 'Adulte', type: 'link', route: '/applications/adulte' },
