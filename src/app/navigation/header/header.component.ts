@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() isSidenavToggle = new EventEmitter<void>();
   title = 'Bulles de Soi';
+  toggleIcon: boolean;
 
   constructor(public componentPageTitle: ComponentPageTitle) { }
 
@@ -20,10 +21,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.toggleIcon = false;
   }
 
   toggleSidenav() {
     this.isSidenavToggle.emit();
   }
+
+  toggleIconClick() {
+    this.toggleIcon = !this.toggleIcon;
+  }
+
 
 }
