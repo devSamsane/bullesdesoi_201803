@@ -19,6 +19,16 @@ import { ComponentPageTitle } from './shared/page-title/page-title';
 import { NavigationItems } from './shared/nav-items/nav-items';
 import { SidenavLogoComponent } from './navigation/sidenav-logo/sidenav-logo.component';
 import { FooterComponent } from './footer/footer.component';
+import { EnfanceComponent } from './pages/applications/enfance/enfance.component';
+import { AdolescenceComponent } from './pages/applications/adolescence/adolescence.component';
+import { AdulteComponent } from './pages/applications/adulte/adulte.component';
+import { SeniorComponent } from './pages/applications/senior/senior.component';
+import { ApplicationsComponent } from './pages/applications/applications.component';
+import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { DeontologieComponent } from './pages/deontologie/deontologie.component';
+import { DescriptionSeancesComponent } from './pages/description-seances/description-seances.component';
+import { TarificationComponent } from './pages/tarification/tarification.component';
+import { AppointmentComponent } from './rendez-vous/appointment/appointment.component';
 
 
 @NgModule({
@@ -32,7 +42,17 @@ import { FooterComponent } from './footer/footer.component';
     SidenavComponent,
     PerinataliteComponent,
     SidenavLogoComponent,
-    FooterComponent
+    FooterComponent,
+    EnfanceComponent,
+    AdolescenceComponent,
+    AdulteComponent,
+    SeniorComponent,
+    ApplicationsComponent,
+    AboutMeComponent,
+    DeontologieComponent,
+    DescriptionSeancesComponent,
+    TarificationComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
