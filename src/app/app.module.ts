@@ -29,6 +29,8 @@ import { DeontologieComponent } from './pages/deontologie/deontologie.component'
 import { DescriptionSeancesComponent } from './pages/description-seances/description-seances.component';
 import { TarificationComponent } from './pages/tarification/tarification.component';
 import { AppointmentComponent } from './rendez-vous/appointment/appointment.component';
+import { MapComponent } from './shared/map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -52,13 +54,16 @@ import { AppointmentComponent } from './rendez-vous/appointment/appointment.comp
     DeontologieComponent,
     DescriptionSeancesComponent,
     TarificationComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule,
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
   providers: [NavigationItems, ComponentPageTitle],
   bootstrap: [AppComponent]
