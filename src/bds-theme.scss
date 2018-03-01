@@ -5,18 +5,16 @@
 $bds-primary: mat-palette($mat-deep-purple, 500, 100, 700);
 $bds-accent: mat-palette($mat-lime, A200, A100, A400);
 $bds-warn: mat-palette($mat-pink);
-// $background: map-get($mat-deep-purple, 50);
-// $foreground: map-get($mat-grey, 800);
+
+// Déclaration de la typographie
+$bds-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif'
+);
 
 // Déclaration du theme
 $theme: mat-light-theme($bds-primary, $bds-accent, $bds-warn);
 $background: map-get($theme, background);
 @include angular-material-theme($theme);
-
-
-// .bds-background {
-//   background-color: #ede7f6;
-// }
-
+@include mat-core($bds-typography);
 
 
