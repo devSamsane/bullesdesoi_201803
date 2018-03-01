@@ -50,10 +50,10 @@ li {
 a {
   display: block;
   text-decoration: none;
-  color: #37474f;
+  color: mat-color($mat-grey, 700);
 }
 
 a.bds-nav-item-selected {
-  color: #673ab7;
+  color: mat-color($bds-primary, 700);
+  font-weight: 700;
 }
-

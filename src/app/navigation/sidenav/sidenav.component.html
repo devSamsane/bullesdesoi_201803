@@ -1,23 +1,22 @@
-<mat-sidenav-container class="bds-background all-wrap mat-typography">
+<mat-sidenav-container class="all-wrap bds-background mat-typography" fxLayout="column">
 
   <mat-sidenav #sidenav role="navigation">
     <bds-sidenav-logo routerLink="/" (click)="sidenav.close()"></bds-sidenav-logo>
     <bds-sidenav-menu (closeSidenav)="sidenav.close()" [params]="params"></bds-sidenav-menu>
   </mat-sidenav>
 
-    <mat-sidenav-content>
-        <div class="page-wrap">
-        <bds-header (isSidenavToggle)="sidenav.toggle()"></bds-header>
+  <mat-sidenav-content>
+    <main class="page-wrap" fxLayout="column">
+      <bds-header (isSidenavToggle)="sidenav.toggle()"></bds-header>
 
-        <main class="content">
-          <router-outlet></router-outlet>
-        </main>
+      <section fxFlex fxFill>
+        <router-outlet></router-outlet>
+      </section>
+      <footer class="bds-color--footer">
+        <bds-footer fxLayout="row" fxLayout.lt-md="column"></bds-footer>
+      </footer>
+    </main>
 
-        <bds-footer></bds-footer>
-
-
-      </div>
-
-    </mat-sidenav-content>
+  </mat-sidenav-content>
 
 </mat-sidenav-container>
