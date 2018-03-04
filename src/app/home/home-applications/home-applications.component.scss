@@ -1,0 +1,23 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.bds-applications--home {
+  background-color: mat-color($bds-primary, 50);
+}
+
+.bds-applications-button--home {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bds-section-title-subtitle > h3 {
+  font-family: "Merienda One, cursive" !important;
+  font-size: 32px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.bds-section--title {
+  padding-top: 50px;
+  padding-left: 60px;
+}
