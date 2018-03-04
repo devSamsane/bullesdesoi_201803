@@ -11,34 +11,43 @@ body {
 }
 
 // Gestion de l'affichage pleine page du router-outlet et du footer positionné en bas
- .all-wrap {
+ .bds-container-wrap {
   min-height: 100vh;
 }
 
-.page-wrap {
-  display: flex;
-  // flex-direction: column;
+.bds-main-wrap {
   min-height: 100vh;
 }
 
+
+// Styles globaux
 bds-footer {
   display: flex;
   min-height: 300px;
 }
 
-// .content {
-//   flex: 1;
-// }
-
-//main {
-  // display: flex;
-  // flex-direction: column;
-  //> *:not(router-outlet) {
-   // flex: 1;
-   // display: block;
-  //}
-//}
 
 .bds-background {
   background-color: mat-color($bds-primary, 50);
+}
+
+/**
+* Propriétés communes à certains components
+* Par défaut les class commenceront par root au lieu de bds
+*/
+blockquote {
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }

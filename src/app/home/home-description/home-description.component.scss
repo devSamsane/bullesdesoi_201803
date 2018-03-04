@@ -1,0 +1,45 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.bds-description--home {
+  background-color: white;
+}
+
+.bds-description-texte--home {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: justify;
+}
+
+.bds-banner-image--home {
+  background-image: url("../../../assets/photos/banner-section-home.png");
+  height: 200px;
+
+  /* Position et centrage de l'image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bds-banner-texte--home {
+  position: absolute;
+  display: block;
+
+  & .bds-landing-title--home > blockquote > p {
+    font-family: "Merienda One", cursive !important;
+    font-size: 24px;
+    color:  whitesmoke;
+  }
+  // font-family: "Merianda One", cursive !important;
+  // font-size: 18px;
+  // color: whitesmoke;
+  // padding-right: 20px;
+}
+
+.bds-section-title > h3 {
+  font-family: "Merienda One, cursive" !important;
+  font-size: 32px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
