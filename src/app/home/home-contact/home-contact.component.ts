@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'bds-home-contact',
@@ -10,6 +11,10 @@ export class HomeContactComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submitFormData(form: NgForm) {
+
   }
 
 }

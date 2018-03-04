@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -36,7 +37,6 @@ import { HomeDescriptionComponent } from './home/home-description/home-descripti
 import { HomeContactComponent } from './home/home-contact/home-contact.component';
 import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +68,7 @@ import { HomeApplicationsComponent } from './home/home-applications/home-applica
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
