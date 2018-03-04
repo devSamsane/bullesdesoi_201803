@@ -31,6 +31,10 @@ import { AppointmentComponent } from './rendez-vous/appointment/appointment.comp
 import { MapComponent } from './shared/map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { HomeDescriptionComponent } from './home/home-description/home-description.component';
+import { HomeContactComponent } from './home/home-contact/home-contact.component';
+import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
 
 
 @NgModule({
@@ -55,7 +59,11 @@ import { NavbarComponent } from './navigation/navbar/navbar.component';
     TarificationComponent,
     AppointmentComponent,
     MapComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeHeaderComponent,
+    HomeDescriptionComponent,
+    HomeContactComponent,
+    HomeApplicationsComponent
   ],
   imports: [
     BrowserModule,
