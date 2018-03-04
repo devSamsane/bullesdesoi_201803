@@ -1,0 +1,35 @@
+.bds-landing-picture--home {
+  height: 600px;
+  background-image: url("../../../assets/photos/landing_picture.jpg");
+
+  /* Position et centrage de l'image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Position du texte sur l'image */
+.bds-landing-content--home {
+  position: absolute;
+  display: block;
+
+
+  & .bds-landing-title--home > h1 {
+    font-family: "Merienda One", cursive !important;
+    font-size: 64px;
+    color:  whitesmoke;
+  }
+
+  & .bds-landing-title--home > h4 {
+    font-family: "Merienda One", cursive !important;
+    font-size: 24px;
+    color:  whitesmoke;
+  }
+
+  & .bds-landing-button--home {
+    position: inherit;
+    display: inherit;
+  }
+}
+
