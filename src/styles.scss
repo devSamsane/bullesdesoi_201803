@@ -11,33 +11,21 @@ body {
 }
 
 // Gestion de l'affichage pleine page du router-outlet et du footer positionné en bas
- .all-wrap {
+ .bds-container-wrap {
   min-height: 100vh;
 }
 
-.page-wrap {
-  display: flex;
-  // flex-direction: column;
+.bds-main-wrap {
   min-height: 100vh;
 }
 
+
+// Styles globaux
 bds-footer {
   display: flex;
   min-height: 300px;
 }
 
-// .content {
-//   flex: 1;
-// }
-
-//main {
-  // display: flex;
-  // flex-direction: column;
-  //> *:not(router-outlet) {
-   // flex: 1;
-   // display: block;
-  //}
-//}
 
 .bds-background {
   background-color: mat-color($bds-primary, 50);
