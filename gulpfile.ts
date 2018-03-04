@@ -43,4 +43,3 @@ gulp.task('watch', () => {
 gulp.task('default', done => {
   runSequence('lint', 'env:dev', ['nodemon', 'watch'], done);
 });
-
