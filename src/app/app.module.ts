@@ -18,7 +18,7 @@ import { PerinataliteComponent } from './pages/applications/perinatalite/perinat
 import { ComponentPageTitle } from './shared/page-title/page-title';
 import { NavigationItems } from './shared/nav-items/nav-items';
 import { SidenavLogoComponent } from './navigation/sidenav-logo/sidenav-logo.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './navigation/footer/footer.component';
 import { EnfanceComponent } from './pages/applications/enfance/enfance.component';
 import { AdolescenceComponent } from './pages/applications/adolescence/adolescence.component';
 import { AdulteComponent } from './pages/applications/adulte/adulte.component';

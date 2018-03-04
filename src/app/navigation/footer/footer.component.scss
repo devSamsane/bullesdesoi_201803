@@ -1,0 +1,34 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
+
+.sign-font {
+  font-family: "Merienda One", cursive !important;
+  font-style: italic;
+}
+
+p.bds-quotes:before {
+  content:"\201C";
+  font-size: 18px;
+}
+
+p.bds-quotes:after {
+  content:"\201D";
+  font-size: 18px
+}
+
+.bds-color--footer {
+  color: #e0e0e0;
+}
+
+.bds-bgc--footer {
+  background-color: mat-color($bds-primary, 800);
+}
+
+.bds-citation--footer {
+  font-style: italic;
+  padding: 30px;
+}
+
+.bds-color-icon--footer {
+  color: mat-color($bds-accent, 500);
+}
