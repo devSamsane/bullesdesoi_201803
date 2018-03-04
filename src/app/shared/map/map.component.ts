@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'bds-map',
   // templateUrl: './map.component.html',
   template: `
-    <div fxFlex>
+    <div>
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]="mapStyles">
         <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="url"></agm-marker>
       </agm-map>

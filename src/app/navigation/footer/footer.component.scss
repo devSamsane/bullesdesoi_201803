@@ -1,3 +1,5 @@
+@import '../../../bds-theme.scss';
+@import '~@angular/material/theming';
 
 .sign-font {
   font-family: "Merienda One", cursive !important;
@@ -14,6 +16,19 @@ p.bds-quotes:after {
   font-size: 18px
 }
 
-p.bds-quotes {
-  text-align: right;
+.bds-color--footer {
+  color: #e0e0e0;
+}
+
+.bds-bgc--footer {
+  background-color: mat-color($bds-primary, 800);
+}
+
+.bds-citation--footer {
+  font-style: italic;
+  padding: 30px;
+}
+
+.bds-color-icon--footer {
+  color: mat-color($bds-accent, 500);
 }
