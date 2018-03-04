@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './navigation/header/header.component';
-import { SidenavMenuComponent } from './navigation/sidenav-menu/sidenav-menu.component';
+import { SidenavMenuComponent } from './navigation/sidenav/sidenav-menu/sidenav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SigninComponent } from './authentication/signin/signin.component';
@@ -17,7 +17,7 @@ import { PerinataliteComponent } from './pages/applications/perinatalite/perinat
 
 import { ComponentPageTitle } from './shared/page-title/page-title';
 import { NavigationItems } from './shared/nav-items/nav-items';
-import { SidenavLogoComponent } from './navigation/sidenav-logo/sidenav-logo.component';
+import { SidenavLogoComponent } from './navigation/sidenav/sidenav-logo/sidenav-logo.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { EnfanceComponent } from './pages/applications/enfance/enfance.component';
 import { AdolescenceComponent } from './pages/applications/adolescence/adolescence.component';

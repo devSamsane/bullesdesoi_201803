@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators/takeUntil';
 import { startWith } from 'rxjs/operators/startWith';
 import {Subject} from 'rxjs/Subject';
 
-import { NavigationItems, NavCategory } from './../../shared/nav-items/nav-items';
+import { NavigationItems, NavCategory } from '../../../shared/nav-items/nav-items';
 
 
 @Component({
