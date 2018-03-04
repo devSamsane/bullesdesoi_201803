@@ -30,3 +30,31 @@ bds-footer {
 .bds-background {
   background-color: mat-color($bds-primary, 50);
 }
+
+/**
+* Propriétés communes à certains components
+* Par défaut les class commenceront par root au lieu de bds
+*/
+blockquote {
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+.root-title--homepage > h3 {
+  font-family: "Merienda One, cursive";
+  font-size: 32px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
