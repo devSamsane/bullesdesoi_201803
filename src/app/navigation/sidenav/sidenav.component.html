@@ -7,7 +7,8 @@
 
   <mat-sidenav-content>
     <main class="page-wrap" fxLayout="column">
-      <bds-header (isSidenavToggle)="sidenav.toggle()"></bds-header>
+      <!-- <bds-header (isSidenavToggle)="sidenav.toggle()"></bds-header> -->
+      <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
 
       <section fxFlex fxFill>
         <router-outlet></router-outlet>

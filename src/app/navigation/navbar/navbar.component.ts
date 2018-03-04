@@ -1,14 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-import { ComponentPageTitle } from './../../shared/page-title/page-title';
-
+import { ComponentPageTitle } from '../../shared/page-title/page-title';
 
 @Component({
-  selector: 'bds-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'bds-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   @Output() isSidenavToggle = new EventEmitter<void>();
   title = 'Bulles de Soi';
@@ -31,6 +29,5 @@ export class HeaderComponent implements OnInit {
   toggleIconClick() {
     this.toggleIcon = !this.toggleIcon;
   }
-
 
 }

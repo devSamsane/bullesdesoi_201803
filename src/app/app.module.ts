@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
-import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavMenuComponent } from './navigation/sidenav/sidenav-menu/sidenav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -31,12 +30,12 @@ import { TarificationComponent } from './pages/tarification/tarification.compone
 import { AppointmentComponent } from './rendez-vous/appointment/appointment.component';
 import { MapComponent } from './shared/map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     SidenavMenuComponent,
     HomeComponent,
     SignupComponent,
@@ -55,7 +54,8 @@ import { AgmCoreModule } from '@agm/core';
     DescriptionSeancesComponent,
     TarificationComponent,
     AppointmentComponent,
-    MapComponent
+    MapComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
