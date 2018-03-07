@@ -1,4 +1,4 @@
-<mat-sidenav-container class="bds-container-wrap bds-background mat-typography" fxLayout="column" >
+<mat-sidenav-container class="bds-background mat-typography" fxLayout="column" >
 
   <mat-sidenav #sidenav role="navigation">
     <bds-sidenav-logo routerLink="/" (click)="sidenav.close()"></bds-sidenav-logo>
@@ -7,10 +7,10 @@
 
   <mat-sidenav-content>
       <!-- (scroll)="scrollSpyHandler($event)" -->
-    <main class="bds-main-wrap" fxLayout="column">
+    <main fxLayout="column" class="bds-main-wrap">
       <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
 
-      <section #router fxFlex>
+      <section #router fxFlex="1">
         <router-outlet></router-outlet>
       </section>
       <footer>

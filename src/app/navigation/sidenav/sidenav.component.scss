@@ -2,7 +2,7 @@
 @import '~@angular/material/theming';
 
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-  height: 100%;
+  min-height: 100%;
 }
 
 mat-sidenav {
