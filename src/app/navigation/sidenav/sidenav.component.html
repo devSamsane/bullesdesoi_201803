@@ -6,10 +6,8 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-      <!-- (scroll)="scrollSpyHandler($event)" -->
     <main fxLayout="column" class="bds-main-wrap">
       <bds-navbar (isSidenavToggle)="sidenav.toggle()"></bds-navbar>
-
       <section #router fxFlex="1">
         <router-outlet></router-outlet>
       </section>
