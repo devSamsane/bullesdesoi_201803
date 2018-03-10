@@ -1,33 +1,30 @@
-<div fxLayout.gt-xs="row" fxLayout="column" fxLayoutAlign="start center" fxFill class="bds-bgc--footer bds-color--footer">
-  <div fxFlex>
+<div fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="space-around stretch" fxFill class="bds-bgc--footer bds-color--footer">
+  <div fxFlex class="bds-container-align-center" [ngClass.lt-md]="{'bds-container-align-center': false, 'bds-container-lt-gt': true}" fxFlexAlign.lt-md="center">
+    <img src="../../../assets/logos/logo-bullesdeSoi-DP50.png" alt="logo bulles de soi" ngClass.gt-sm="bds-footer-logo" ngClass.lt-md="bds-footer-logo--lt-gt">
+  </div>
+  <div fxFlex  class="bds-container-align-center" [ngClass.lt-md]="{'bds-container-align-center': false, 'bds-container-lt-gt': true}">
     <mat-list >
       <mat-list-item>
-        <mat-icon matListIcon class="bds-color-icon--footer">contacts</mat-icon>
+        <mat-icon matListIcon class="bds-color-icon--footer">person</mat-icon>
         <h3 matLine class="bds-color--footer">Patricia Pesce-Lavaux</h3>
       </mat-list-item>
-      <mat-divider></mat-divider>
+
       <mat-list-item>
         <mat-icon matListIcon class="bds-color-icon--footer">map</mat-icon>
         <p matLine class="bds-color--footer">53 bis, boulevard Robespierre</p>
         <p matLine class="bds-color--footer">78300 POISSY</p>
       </mat-list-item>
-      <mat-divider></mat-divider>
+
       <mat-list-item>
-        <mat-icon matListIcon class="bds-color-icon--footer">contact_phone</mat-icon>
+        <mat-icon matListIcon class="bds-color-icon--footer">phone</mat-icon>
         <p matLine class="bds-color--footer">07 64 09 87 68</p>
       </mat-list-item>
-      <mat-divider></mat-divider>
+
       <mat-list-item>
-        <mat-icon matListIcon class="bds-color-icon--footer">contact_mail</mat-icon>
+        <mat-icon matListIcon class="bds-color-icon--footer">email</mat-icon>
         <p matLine class="bds-color--footer">contact@bullesdesoi.fr</p>
       </mat-list-item>
     </mat-list>
-  </div>
-  <div fxFlex class="bds-citation--footer">
-
-    <p class="bds-quotes"> Permettre le développement de l'autonomie en étant acteur de son mieux-être... </p>
-    <p style="font-family: Merienda One, cursive; text-align: right;" >@Patricia</p>
-
   </div>
   <div fxFlex fxFlex="33" fxFlexFill>
     <bds-map></bds-map>

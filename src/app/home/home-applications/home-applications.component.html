@@ -1,64 +1,93 @@
-<div class="bds-applications--home" fxLayout="column" fxLayoutAlign="space-evenly">
+<div class="bds-applications--home" fxLayout="column">
+  <div fxLayout="column" fxLayoutAlign="center stretch">
 
-  <div fxLayout="column" fxLayoutAlign="start start" fxFill>
-    <div fxFlex class="bds-section-title-subtitle">
-      <h3>Spécialisations</h3>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-around center"
+      class="bds-applications-button--home"
+    >
+      <div fxFlex class="bds-section-title-subtitle">
+        <h3>Spécialisations</h3>
+      </div>
+      <div fxFlex>
+        <h4>La sophrologie peut s'adresser à tous, retrouvez plus d'informations sur les pages détaillées</h4>
+      </div>
     </div>
-    <div fxFlex>
-      <h4>La sophrologie peut s'adresser à tous, retrouvez plus d'informations sur les pages détaillées</h4>
-    </div>
-  </div>
 
-
-    <div fxFlex="100" fxFlexFill fxLayoutAlign="space-between center">
-      <div fxFlex="20">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center">
+      <div fxFlex="25" ngClass.lt-md="bds-space-lt-md">
         <mat-card class="bds-applications-card--home">
           <mat-card-header>
             <mat-card-title>Périnatalité</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="../../../assets/photos/31.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
+          <img
+            mat-card-image
+            src="../../../assets/photos/beautiful-young-pregnant-woman-in-beach-beautiful-pregnant-161569-2.jpeg"
+            alt="Photo femme enceinte"
+            >
+          <mat-card-content class="bds-card-spacer">
             <p>
               Vous accompagnez à tous les stades autour de la naissance
             </p>
+            <span></span>
           </mat-card-content>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+            <button mat-button color="primary" routerLink="applications/perinatalite">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </mat-card-actions>
         </mat-card>
       </div>
 
-      <div fxFlex="20">
+      <div fxFlex="25" ngClass.lt-md="bds-space-lt-md">
         <mat-card class="bds-applications-card--home">
           <mat-card-header>
             <mat-card-title>Enfance</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="../../../assets/photos/31.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
+          <img
+            mat-card-image
+            src="../../../assets/photos/pexels-photo-333529-2.jpeg"
+            alt="Photo enfant"
+          >
+          <mat-card-content class="bds-card-spacer">
             <p>
               Une thérapie adaptable et accessible pour les problématiques de l'enfant
             </p>
           </mat-card-content>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+            <button mat-button color="primary" routerLink="applications/enfance">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </mat-card-actions>
         </mat-card>
       </div>
 
-      <div fxFlex="20">
+      <div fxFlex="25" ngClass.lt-md="bds-space-lt-md">
         <mat-card class="bds-applications-card--home">
           <mat-card-header>
             <mat-card-title>Adolescence</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="../../../assets/photos/31.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
+          <img
+            mat-card-image src="../../../assets/photos/pexels-photo-209700-2.jpeg"
+            alt="Photo adolescent"
+          >
+          <mat-card-content class="bds-card-spacer">
             <p>
               La sophrologie comme précieuse alliée sur la période de tous les changements
             </p>
           </mat-card-content>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+            <button mat-button color="primary" routerLink="applications/adolescence">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </mat-card-actions>
         </mat-card>
       </div>
     </div>
-
-    <!-- bouton en savoir plus -->
-    <div fxFlex="100" fxFlexFill fxLayoutAlign="center center" class="bds-applications-button--home">
-      <button mat-raised-button color="primary" routerLink="/applications">En savoir plus</button>
-    </div>
-
-
-
   </div>
+
+  <div fxFlex="100" fxFlexFill fxLayoutAlign="center center" class="bds-applications-button--home">
+    <button mat-raised-button color="accent" routerLink="/applications">En savoir plus</button>
+  </div>
+
+</div>

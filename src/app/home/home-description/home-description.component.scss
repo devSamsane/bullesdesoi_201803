@@ -9,8 +9,7 @@
 }
 
 .bds-description-texte--home {
-  // padding-left: 20px;
-  // padding-right: 20px;
+  font-family: "Lato", Thin;
   text-align: justify;
 }
 
@@ -39,20 +38,16 @@
     font-size: 24px;
     color:  whitesmoke;
   }
-  // font-family: "Merianda One", cursive !important;
-  // font-size: 18px;
-  // color: whitesmoke;
-  // padding-right: 20px;
 }
 
 .bds-section-title > h3 {
-  // font-family: "Merienda One", cursive !important;
+  font-family: "Lato", Thin;
   font-size: 32px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.circular--square {
+.bds-circular--square {
   border-top-left-radius: 50% 50%;
   border-top-right-radius: 50% 50%;
   border-bottom-right-radius: 50% 50%;
@@ -61,8 +56,18 @@
   width: 300px;
 }
 
+.bds-circular--square-lt-md {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  height: 150px;
+  width: 150px;
+}
+
 .bds-row-description--home {
   padding-right: 50px;
   padding-left: 50px;
   padding-bottom: 50px;
+  align-items: center;
 }

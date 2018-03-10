@@ -1,47 +1,57 @@
-<div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="space-around center" class="bds-global-contact--home">
+<div fxLayout="column" fxLayoutAlign="space-around center" class="bds-global-contact--home">
   <div fxLayout="column" fxLayoutAlign="center center">
-    <div fxFlex>
-      <h3>
-        Contactez-moi
-      </h3>
+    <div fxFlex class="bds-subtitle-contact-home">
+      <h3>Contactez-moi</h3>
     </div>
   </div>
-  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="submitFormData(f)">
-    <mat-form-field>
-      <input matInput type="text" name="lastname" placeholder="Nom" required #lastnameInput>
-      <!-- <mat-error *ngIf="!lastnameInput.hasError('required')">Champs invalide</mat-error>
-      <mat-error *ngIf="lastnameInput.hasError('required')">Champs obligatoire</mat-error> -->
-    </mat-form-field>
+  <div fxLayout="column" fxFill>
+    <form #f="ngForm" (ngSubmit)="submitFormData(f)">
 
-    <mat-form-field>
-        <input matInput type="text" name="firstname" placeholder="Prénom" required #firstnameInput>
-        <!-- <mat-error *ngIf="!firstnameInput.hasError('required')">Champs invalide</mat-error>
-        <mat-error *ngIf="firstnameInput.hasError('required')">Champs obligatoire</mat-error> -->
-      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        class="bds-row-form--home" ngClass.lt-md="bds-row-form-lt-md">
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" name="lastname" placeholder="Nom" required #lastnameInput>
+          <!--  <mat-error *ngIf="!lastnameInput.hasError('required')">Champs invalide</mat-error>
+              <mat-error *ngIf="lastnameInput.hasError('required')">Champs obligatoire</mat-error> -->
+        </mat-form-field>
 
-      <mat-form-field>
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" name="firstname" placeholder="Prénom" required #firstnameInput>
+          <!-- <mat-error *ngIf="!firstnameInput.hasError('required')">Champs invalide</mat-error>
+                <mat-error *ngIf="firstnameInput.hasError('required')">Champs obligatoire</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        class="bds-row-form--home" ngClass.lt-md="bds-row-form-lt-md">
+        <mat-form-field fxFlex="40">
           <input matInput type="email" name="email" placeholder="Email" required #emailInput>
           <!-- <mat-error *ngIf="!emailInput.hasError('required')">Email invalide</mat-error>
-          <mat-error *ngIf="emailInput.hasError('required')">Email obligatoire</mat-error> -->
+              <mat-error *ngIf="emailInput.hasError('required')">Email obligatoire</mat-error> -->
         </mat-form-field>
 
-        <mat-form-field>
-            <input matInput type="text" name="phone" placeholder="Téléphone" #phoneInput>
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" name="phone" placeholder="Téléphone" #phoneInput>
         </mat-form-field>
+      </div>
 
-        <mat-form-field>
-          <textarea matInput type="texte" name="comment" placeholder="Laissez un commentaire" required #commentInput></textarea>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        class="bds-row-form--home" ngClass.lt-md="bds-row-form-lt-md">
+        <mat-form-field fxFlex="90">
+          <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" type="texte" name="comment" placeholder="Laissez un commentaire"
+            required #commentInput></textarea>
           <!-- <mat-error *ngIf="!commentInput.hasError('required')">Champ invalide</mat-error>
-          <mat-error *ngIf="commentInput.hasError('required')">Commentaire obligatoire</mat-error> -->
+                      <mat-error *ngIf="commentInput.hasError('required')">Commentaire obligatoire</mat-error> -->
         </mat-form-field>
+      </div>
 
-        <button
-      mat-raised-button
-      color="accent"
-      type="submit"
-      [disabled]="f.invalid"
-      >
-      Envoyez
-    </button>
-  </form>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="accent" type="submit" [disabled]="f.invalid">
+          Envoyez
+        </button>
+      </div>
+
+    </form>
+
+  </div>
 </div>

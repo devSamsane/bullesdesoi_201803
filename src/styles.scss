@@ -8,6 +8,10 @@ html, body {
 
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”,
+    “Droid Sans”, “Helvetica Neue”, sans-serif;
 }
 
 // Gestion de l'affichage pleine page du router-outlet et du footer positionné en bas

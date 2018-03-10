@@ -28,20 +28,29 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
       state(
         'clear',
         style({
-          backgroundColor: 'rgba(126, 87, 194, 0)',
+          backgroundColor: 'rgba(179, 157, 219, 0)',
+          boxShadow: 'none'
+        })
+      ),
+      state(
+        'intermediate',
+        style({
+          backgroundColor: 'rgba(179, 157, 219, 0.5)',
           boxShadow: 'none'
         })
       ),
       state(
         'color',
         style({
-          backgroundColor: 'rgba(126, 87, 194, 1)',
+          backgroundColor: 'rgba(179, 157, 219, 1)',
           boxShadow:
             '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)'
         })
       ),
-      transition('clear => color', animate('300ms ease-in')),
-      transition('color => clear', animate('300ms ease-out'))
+      transition('clear => intermediate', animate('200ms ease-in')),
+      transition('intermediate => color', animate('300ms ease-in')),
+      transition('color => intermdiate', animate('200ms ease-out')),
+      transition('intermediate => clear', animate('300ms ease-out'))
     ])
   ]
 })
@@ -54,7 +63,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   toggleIcon: boolean;
   private destroyed = new Subject();
   private scrollContainer: any;
-  private SCROLL_TOOLBAR_CHANGE_STATE = 200;
+  private SCROLL_TOOLBAR_INTERMEDIATE_STATE = 200;
+  private SCROLL_TOOLBAR_COLOR_STATE = 700;
   private scrollOffset: any = 0;
 
   _rootUrl: string;
@@ -95,10 +105,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private getNavbarState(scrollValue: number) {
-    if (scrollValue > this.SCROLL_TOOLBAR_CHANGE_STATE) {
-      this.navbarStateColor = 'color';
-    } else if (scrollValue <= this.SCROLL_TOOLBAR_CHANGE_STATE) {
+    if (scrollValue < this.SCROLL_TOOLBAR_INTERMEDIATE_STATE ) {
       this.navbarStateColor = 'clear';
+    } else if (scrollValue >= this.SCROLL_TOOLBAR_INTERMEDIATE_STATE && scrollValue <= this.SCROLL_TOOLBAR_COLOR_STATE) {
+      this.navbarStateColor = 'intermediate';
+    } else if (scrollValue > this.SCROLL_TOOLBAR_COLOR_STATE) {
+      this.navbarStateColor = 'color';
     }
   }
 

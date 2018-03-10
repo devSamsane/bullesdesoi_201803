@@ -3,14 +3,14 @@
   <button mat-icon-button (click)="toggleSidenav()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h2 class="title">{{title}}</h2>
+  <!-- <h2 class="title">{{title}}</h2> -->
 
   <span class="bds-spacer-toolbar"></span>
     <button mat-icon-button (click)="toggleIconClick()">
       <mat-icon *ngIf="!toggleIcon">person_outline</mat-icon>
       <mat-icon *ngIf="toggleIcon">person</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button routerLink="/rdv">
       <mat-icon>event</mat-icon>
     </button>
 

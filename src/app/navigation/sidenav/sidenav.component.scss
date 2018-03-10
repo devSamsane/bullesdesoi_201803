@@ -7,8 +7,8 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 mat-sidenav {
   width: 272px;
-  background-color:mat-color($bds-primary, 500) !important;
-  color: whitesmoke;
+  background-color:mat-color($bds-primary, 200) !important;
+  color:mat-color($mat-grey, 800);
 }
 
 bds-sidenav-logo:focus {

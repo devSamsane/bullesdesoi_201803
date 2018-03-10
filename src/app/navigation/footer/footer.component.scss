@@ -1,34 +1,39 @@
 @import '../../../bds-theme.scss';
 @import '~@angular/material/theming';
 
-.sign-font {
-  font-family: "Merienda One", cursive !important;
-  font-style: italic;
-}
-
-p.bds-quotes:before {
-  content:"\201C";
-  font-size: 18px;
-}
-
-p.bds-quotes:after {
-  content:"\201D";
-  font-size: 18px
-}
-
 .bds-color--footer {
-  color: #e0e0e0;
+  color: mat-color($mat-grey, 50);
+  font-family: "Lato", Thin;
+  font-size: 16px !important;
+  font-weight: 100 !important;
 }
 
 .bds-bgc--footer {
   background-color: mat-color($bds-primary, 800);
 }
 
-.bds-citation--footer {
-  font-style: italic;
-  padding: 30px;
+.bds-color-icon--footer {
+  color: mat-color($mat-grey, 200);
 }
 
-.bds-color-icon--footer {
-  color: mat-color($bds-accent, 500);
+.bds-footer-logo {
+  max-height: 220px;
+}
+
+.bds-footer-logo--lt-gt {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-height: 150px;
+}
+
+.bds-container-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bds-container-lt-gt {
+  display: block;
+  align-items: center;
+  justify-content: center;
 }

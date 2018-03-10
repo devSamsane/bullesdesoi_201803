@@ -1,6 +1,11 @@
+@import '~@angular/material/theming';
+@import '../../../bds-theme.scss';
+
+$config: mat-typography-config();
+
 .bds-landing-picture--home {
-  height: 600px;
-  background-image: url("../../../assets/photos/landing_picture.jpg");
+  min-height: 800px;
+  background-image: url("../../../assets/photos/drop-of-water-drip-flower-plant-40752-filtre.jpeg");
 
   /* Position et centrage de l'image */
   background-position: center;
@@ -13,22 +18,40 @@
 .bds-landing-content--home {
   position: absolute;
   display: block;
+  margin-left: 100px;
+  margin-top: 150px;
 
   & .bds-landing-title--home > h1 {
     font-family: "Merienda One", cursive !important;
-    font-size: 64px;
-    color:  whitesmoke;
+    margin-bottom: 0;
+    color: mat-color($bds-primary, 50);
   }
 
   & .bds-landing-title--home > h4 {
-    font-family: "Merienda One", cursive !important;
+    font-family: "Lato", Thin !important;
+    margin-bottom: 0px;
     font-size: 24px;
-    color:  whitesmoke;
-  }
-
-  & .bds-landing-button--home {
-    padding-top: 50px;
+    color: mat-color($mat-grey, 200);
   }
 
 }
 
+.bds-landing-content--home-lt-md {
+  position: absolute;
+  display: block;
+
+  & .bds-landing-title--home > h1 {
+    font-family: "Merienda One", cursive !important;
+    font-size: 48px;
+    margin-bottom: 0;
+    color: mat-color($bds-primary, 50);
+  }
+
+  & .bds-landing-title--home > h4 {
+    font-family: "Lato", Thin !important;
+    margin-bottom: 0px;
+    font-size: 18px;
+    color: mat-color($mat-grey, 200);
+    text-align: center;
+  }
+}

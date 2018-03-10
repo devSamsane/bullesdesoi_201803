@@ -1,10 +1,10 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayoutGap="40" class="bds-description--home">
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign=" center center" fxLayoutGap="40" class="bds-description--home">
 
-  <div fxLayout="row" fxlayoutAlign="center center" class="bds-row-description--home">
-    <div fxFlex="40">
-      <img src="../../../assets/photos/31.jpg" alt="" class="circular--square">
+  <div fxLayout="row" fxLayout.lt-md="column" fxlayoutAlign="center stretch" class="bds-row-description--home">
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="center center">
+      <img src="../../../assets/photos/flower-blossom-bloom-white-161552-circle.png" alt="" class="bds-circular--square" [ngClass.lt-md]="{'bds-circular--square': false, 'bds-circular--square-lt-md': true}">
     </div>
-    <div fxFlex="60" fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+    <div fxFlex="60" fxLayout="column" fxLayoutAlign.lt-md="center center">
       <div fxFlex class="bds-section-title">
         <h3>Description</h3>
       </div>
@@ -21,11 +21,11 @@
     </div>
   </div>
 
-  <div fxLayout="row" fxlayoutAlign="center center" class="bds-row-description--home">
-    <div fxFlex="40">
-      <img src="../../../assets/photos/31.jpg" alt="" class="circular--square">
+  <div fxLayout="row" fxLayout.lt-md="column" fxlayoutAlign="center stretch" class="bds-row-description--home">
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="center center">
+      <img src="../../../assets/photos/pratique-circle.png" alt="" class="bds-circular--square" [ngClass.lt-md]="{'bds-circular--square': false, 'bds-circular--square-lt-md': true}">
     </div>
-    <div fxFlex="60" fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+    <div fxFlex="60" fxLayout="column" fxLayoutAlign.lt-md="center center">
       <div fxFlex class="bds-section-title">
         <h3>Pratique</h3>
       </div>

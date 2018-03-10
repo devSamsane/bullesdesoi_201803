@@ -1,9 +1,9 @@
-<div class="bds-landing-picture--home" fxLayout="column" fxLayoutAlign="space-around center">
-  <div class="bds-landing-content--home" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+<div class="bds-landing-picture--home" fxLayout="column" fxLayoutAlign="start" fxLayoutAlign.lt-md="space-around center">
+  <div class="bds-landing-content--home" [ngClass.lt-md]="{'bds-landing-content--home': false, 'bds-landing-content--home-lt-md': true}" fxLayout="column" fxLayoutAlign="start start" fxLayoutAlign.lt-md="space-around center">
     <div fxFlex class="bds-landing-title--home">
-      <h1>Bulles de soi</h1>
+      <h1 class="mat-display-4">Bulles de soi</h1>
     </div>
-    <div fxFlex class="bds-landing-title--home">
+    <div fxFlex class="bds-landing-title--home mat-display-1">
       <h4>Etre acteur de son mieux être en permettant le développement de l'autonomie</h4>
     </div>
     <div fxFlex="100" class="bds-landing-button--home">
