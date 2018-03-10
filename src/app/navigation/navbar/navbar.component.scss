@@ -2,7 +2,6 @@
 @import '~@angular/material/theming';
 
 .bds-bg-color-toolbar {
-  background: mat-color($bds-primary, 700);
   color: mat-color($mat-blue-grey, 50);
 }
 
@@ -13,4 +12,9 @@
 
 .bds-spacer-toolbar {
   flex: 1 1 auto;
+}
+
+mat-toolbar.mat-toolbar {
+  z-index: 5;
+  position: fixed;
 }
