@@ -24,25 +24,32 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   animations: [
-    // routerTransition,
-    trigger('navbarStateToggle', [
-      state('transparent', style({
-        backgroundColor: 'rgba(126, 87, 194, 0)'
-      })),
-      state('opaque', style({
-        backgroundColor: 'rgba(126, 87, 194, 1)',
-      })),
-      transition('transparent => opaque', animate('500ms ease-in')),
-      transition('opaque => transparent', animate('500ms ease-out'))
+    trigger('navbarStateColor', [
+      state(
+        'clear',
+        style({
+          backgroundColor: 'rgba(126, 87, 194, 0)',
+          boxShadow: 'none'
+        })
+      ),
+      state(
+        'color',
+        style({
+          backgroundColor: 'rgba(126, 87, 194, 1)',
+          boxShadow:
+            '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)'
+        })
+      ),
+      transition('clear => color', animate('300ms ease-in')),
+      transition('color => clear', animate('300ms ease-out'))
     ])
   ]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-
   @Input() container: string;
   @Output() isSidenavToggle = new EventEmitter<void>();
 
-  public navbarStateToggle = 'transparent';
+  public navbarStateColor = 'clear';
   title = 'Bulles de Soi';
   toggleIcon: boolean;
   private destroyed = new Subject();
@@ -58,7 +65,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     public componentPageTitle: ComponentPageTitle,
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.router.events.pipe(takeUntil(this.destroyed)).subscribe((event) => {
+    this.router.events.pipe(takeUntil(this.destroyed)).subscribe(event => {
       if (event instanceof NavigationEnd) {
         const rootUrl = router.url.split('#')[0];
         this._rootUrl = rootUrl;
@@ -66,7 +73,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       }
     });
   }
-
 
   getTitle() {
     return this.componentPageTitle.title;
@@ -82,17 +88,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private setNavbarState(url: string) {
     if (url !== '/') {
-      this.navbarStateToggle = 'opaque';
+      this.navbarStateColor = 'color';
     } else {
-      this.navbarStateToggle = 'transparent';
+      this.navbarStateColor = 'clear';
     }
   }
 
   private getNavbarState(scrollValue: number) {
     if (scrollValue > this.SCROLL_TOOLBAR_CHANGE_STATE) {
-      this.navbarStateToggle = 'opaque';
+      this.navbarStateColor = 'color';
     } else if (scrollValue <= this.SCROLL_TOOLBAR_CHANGE_STATE) {
-      this.navbarStateToggle = 'transparent';
+      this.navbarStateColor = 'clear';
     }
   }
 
@@ -100,7 +106,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (scrollValue !== 'undefined') {
       this.getNavbarState(scrollValue);
     } else {
-      this.navbarStateToggle = 'transparent';
+      this.navbarStateColor = 'clear';
     }
   }
 
@@ -108,11 +114,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.toggleIcon = false;
 
     Promise.resolve().then(() => {
-      this.scrollContainer = this.container ? this.document.querySelector(this.container)['mat-sidenav-content'] : window;
-      fromEvent(this.scrollContainer, 'scroll').pipe(
-        takeUntil(this.destroyed),
-        debounceTime(10))
-        .subscribe((event) => {
+      this.scrollContainer = this.container
+        ? this.document.querySelector(this.container)['mat-sidenav-container']
+        : window;
+      fromEvent(this.scrollContainer, 'scroll')
+        .pipe(takeUntil(this.destroyed), debounceTime(10))
+        .subscribe(event => {
           this.scrollOffset = this.scrollContainer.window.pageYOffset;
           if (this._rootUrl === '/') {
             this.getScrollOffset(this.scrollOffset);
@@ -124,5 +131,4 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed.unsubscribe();
   }
-
 }

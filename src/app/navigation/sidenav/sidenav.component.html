@@ -1,6 +1,6 @@
-<mat-sidenav-container class="bds-background mat-typography" fxLayout="column" >
+<mat-sidenav-container class="bds-background mat-typography" fxLayout="column">
 
-  <mat-sidenav #sidenav role="navigation">
+  <mat-sidenav #sidenav role="navigation" mode="over" fixedInViewport="true">
     <bds-sidenav-logo routerLink="/" (click)="sidenav.close()"></bds-sidenav-logo>
     <bds-sidenav-menu (closeSidenav)="sidenav.close()" [params]="params"></bds-sidenav-menu>
   </mat-sidenav>
