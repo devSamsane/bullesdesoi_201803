@@ -5,7 +5,7 @@ import { Types } from 'mongoose';
  * @export
  * @interface UserInterface
  */
-export interface UserInterface {
+export interface User {
   email: string;
   firstName: string;
   lastName: string;

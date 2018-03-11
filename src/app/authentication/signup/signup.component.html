@@ -1,3 +1,55 @@
-<p>
-  signup works!
-</p>
+<div fxLayout="column" fxLayoutAlign="space-around center" class="bds-page-signup">
+
+  <div fxLayout="column" fxFill>
+    <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        ngClass.lt-md="bds-row-form-lt-md">
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" placeholder="Nom" formControlName="lastName" required>
+          <!--  <mat-error *ngIf="!lastnameInput.hasError('required')">Champs invalide</mat-error>
+                <mat-error *ngIf="lastnameInput.hasError('required')">Champs obligatoire</mat-error> -->
+        </mat-form-field>
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" formControlName="firstName" placeholder="Prénom" required>
+          <!-- <mat-error *ngIf="!firstnameInput.hasError('required')">Champs invalide</mat-error>
+                      <mat-error *ngIf="firstnameInput.hasError('required')">Champs obligatoire</mat-error> -->
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        ngClass.lt-md="bds-row-form-lt-md">
+
+
+        <mat-form-field fxFlex="40">
+          <input matInput type="email" formControlName="email" placeholder="Email" required>
+          <!-- <mat-error *ngIf="!emailInput.hasError('required')">Email invalide</mat-error>
+              <mat-error *ngIf="emailInput.hasError('required')">Email obligatoire</mat-error> -->
+        </mat-form-field>
+        <mat-form-field fxFlex="40">
+          <input matInput type="text" formControlName="phone" placeholder="Téléphone">
+        </mat-form-field>
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch"
+        ngClass.lt-md="bds-row-form-lt-md">
+
+        <mat-form-field fxFlex="40">
+          <input matInput type="password" formControlName="password" placeholder="Mot de passe" required>
+        </mat-form-field>
+        <mat-form-field fxFlex="40">
+          <input matInput type="password" formControlName="confirmPassword" placeholder="Confirmation du mot de passe" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="accent" type="submit" [disabled]="signupForm.invalid">
+          Créer le compte
+        </button>
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>

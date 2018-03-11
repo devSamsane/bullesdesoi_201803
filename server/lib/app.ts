@@ -10,6 +10,8 @@ import { Logger } from './services/logger.service';
 import { MongooseService } from './services/mongoose.service';
 import { connection } from 'mongoose';
 import { properties } from './config/index';
+import { UserApi } from './api/user.api';
+import { ServicesApi } from './api/services.api';
 
 const expressMiddlewares = new ExpressMiddlewares();
 const expressLogger = new Logger().logExpress();
@@ -27,23 +29,22 @@ export class Server {
   public properties;
 
   constructor() {
+                  // Création de l'application express
+                  this.app = express();
 
-    // Création de l'application express
-    this.app = express();
+                  // Initialisation du logger
+                  this.app.use(expressLogger);
 
-    // Initialisation du logger
-    this.app.use(expressLogger);
+                  // Initialisation de la connexion mongoose
+                  this.startMongoose();
+                  this.initializeModels();
 
-    // Initialisation de la connexion mongoose
-    this.startMongoose();
-    this.initializeModels();
+                  // Initialisation des middlewares
+                  this.middlewares(this.app);
 
-    // Initialisation des middlewares
-    this.middlewares(this.app);
-
-    // Injection des routes
-    this.routes();
-  }
+                  // Injection des api
+                  this.api();
+                }
 
   /**
   * Bootstrap application express
@@ -86,37 +87,14 @@ export class Server {
     expressMiddlewares.init(app);
   }
 
-  /**
-   * Initialisation des routes
-   * @method routes
-   * @private
-   * @memberof Server
-   */
-  private routes(): void {
 
+  public api() {
     const router = express.Router();
-    router.get('/', (req: Request, res: Response) => {
-      res.json({ message: 'backend Bulles de Soi'});
-    });
 
-    // ReCaptchaRoute
-    router.get('/api/recaptcha', (req: Request, res: Response) => {
-      const options = {
-        method: 'POST',
-        uri: 'https://www.google.com/recaptcha/api/siteverify',
-        qs: {
-          secret: properties.config.recaptcha.secret,
-          response: req.query.token
-        },
-        json: true
-      };
-
-      rp(options)
-        .then(response => res.json(response))
-        .catch(() => { });
-    });
+    // Création des api user
+    UserApi.create(router);
+    ServicesApi.create(router);
 
     this.app.use(router);
   }
-
 }
