@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -36,6 +37,7 @@ import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { HomeDescriptionComponent } from './home/home-description/home-description.component';
 import { HomeContactComponent } from './home/home-contact/home-contact.component';
 import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
+import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
 
 @NgModule({
   declarations: [
@@ -63,12 +65,16 @@ import { HomeApplicationsComponent } from './home/home-applications/home-applica
     HomeHeaderComponent,
     HomeDescriptionComponent,
     HomeContactComponent,
-    HomeApplicationsComponent
+    HomeApplicationsComponent,
+    RecaptchaDirective
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
