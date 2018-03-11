@@ -40,6 +40,7 @@ import { HomeContactComponent } from './home/home-contact/home-contact.component
 import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
 import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
 import { AuthService } from './authentication/auth.service';
+import { ToasterService } from './shared/services/toaster/toaster.service';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,7 @@ import { AuthService } from './authentication/auth.service';
     FlexLayoutModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
-  providers: [NavigationItems, ComponentPageTitle, AuthService],
+  providers: [NavigationItems, ComponentPageTitle, AuthService, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { User } from '../../models/user';
 import { AuthService } from '../auth.service';
+import { ToasterService } from '../../shared/services/toaster/toaster.service';
 
 @Component({
   selector: 'bds-signup',
@@ -16,7 +17,12 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   errors: string[] = [];
 
-  constructor( private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toaster: ToasterService
+
+  ) { }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -33,14 +39,13 @@ export class SignupComponent implements OnInit {
     if (form.email && form.password && form.password === form.confirmPassword) {
       this.authService.signup(form)
         .subscribe(
-        data => {
+          data => {
             // TODO: Supprimer la console
             console.log(data);
             this.router.navigateByUrl('/');
-            // TODO: Mettre une méthode avec snackbar
-            console.log('User créé avec succés');
+            this.toaster.showInformationToaster('Utilisateur créé avec succès', 'bds-toast-information');
           },
-          error => this.errors = error
+          error => this.toaster.showAlertToaster(`Erreur à la création de l'utilisateur`, `bds-toast-alert`)
       );
     }
     this.signupForm.reset();
