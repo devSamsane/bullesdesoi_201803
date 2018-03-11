@@ -2,13 +2,13 @@ import mongoose = require('mongoose');
 import { Model } from 'mongoose';
 import * as chalk from 'chalk';
 
-import { ModelInterface } from './../interfaces/models.interfaces';
+// import { ModelInterface } from './../interfaces/models.interfaces';
 
-import { UserInterface } from './../../modules/user/models/interfaces/user';
-import { SeanceInterface } from './../../modules/seance/models/interfaces/seance';
+// import { UserInterface } from './../../modules/user/models/interfaces/user';
+// import { SeanceInterface } from './../../modules/seance/models/interfaces/seance';
 
-import { UserModelInterface } from './../../modules/user/models/user';
-import { SeanceModelInterface } from './../../modules/seance/models/seance';
+// import { UserModelInterface } from './../../modules/user/models/user';
+// import { SeanceModelInterface } from './../../modules/seance/models/seance';
 
 import { userSchema } from './../../modules/user/models/schemas/user';
 import { seanceSchema } from './../../modules/seance/models/schemas/seance';
@@ -22,14 +22,14 @@ import { connection } from 'mongoose';
 export class MongooseService {
 
   // Instance des models
-  private model: ModelInterface;
+  // private model: ModelInterface;
   // private uri = properties.config.db.uri;
   private uri: string = properties.config.db.uri;
 
   constructor() {
     // Instance par défaut
     // Initialisation comme un objet vide
-    this.model = Object();
+    // this.model = Object();
   }
 
   public loadModels() {

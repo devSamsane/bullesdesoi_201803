@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -38,6 +39,7 @@ import { HomeDescriptionComponent } from './home/home-description/home-descripti
 import { HomeContactComponent } from './home/home-contact/home-contact.component';
 import { HomeApplicationsComponent } from './home/home-applications/home-applications.component';
 import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
+import { AuthService } from './authentication/auth.service';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -80,7 +83,7 @@ import { RecaptchaDirective } from './shared/recaptcha/recaptcha.directive';
     FlexLayoutModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBEidIrV8EFlQRyt_ra6qcCoBlJTev1mtE' })
   ],
-  providers: [NavigationItems, ComponentPageTitle],
+  providers: [NavigationItems, ComponentPageTitle, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

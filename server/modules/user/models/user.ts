@@ -1,14 +1,10 @@
-import { Document } from 'mongoose';
+import mongoose = require('mongoose');
+import { Document, Model } from 'mongoose';
 
-import { UserInterface } from './interfaces/user';
+import { User as UserInterface } from './interfaces/user';
+import { userSchema } from './schemas/user';
 
-/**
- * Interface du model User pour la collection users
- * @export
- * @interface UserModelInterface
- * @extends {UserInterface}
- * @extends {Document}
- */
-export interface UserModelInterface extends UserInterface, Document {
+export interface UserModel extends UserInterface, Document { }
+export interface UserModelStatic extends Model<UserModel> { }
 
-}
+export const User = mongoose.model<UserModel, UserModelStatic>('User', userSchema);
