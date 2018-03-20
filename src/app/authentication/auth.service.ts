@@ -11,7 +11,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 @Injectable()
 export class AuthService {
   private subject = new BehaviorSubject<User>(undefined);
-  private readonly url = 'http://localhost:3000/';
+  private readonly url = 'https://localhost:3000/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -23,7 +23,13 @@ export class AuthService {
   signup(user: User): Observable<{} | User> {
     const body = JSON.stringify(user);
     return this.http
-      .post<User>(`${this.url}api/users`, body, this.httpOptions)
+      .post<User>(`${this.url}api/auth/signup`, body, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  signin(email: string, password: string): Observable<any> {
+    return this.http
+      .post<User>(`${this.url}api/auth/signin`, { email: email, password: password }, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 

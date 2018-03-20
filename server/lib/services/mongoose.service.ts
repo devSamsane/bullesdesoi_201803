@@ -16,7 +16,8 @@ import { sophronisationSchema } from './../../modules/sophronisation/models/sche
 import { relaxationSchema } from '../../modules/relaxation/models/schemas/relaxation';
 import { appointmentSchema } from './../../modules/appointment/models/schemas/appointment';
 
-import { properties } from './../config/index';
+import { Properties } from '../interfaces/properties.interface';
+const properties: Properties = require('../config/index');
 import { connection } from 'mongoose';
 
 export class MongooseService {
@@ -46,7 +47,7 @@ export class MongooseService {
     return new Promise((resolve, reject) => {
       mongoose.Promise = properties.config.db.promise;
       const mongoOptions = { ...properties.config.db.options };
-      // tslint:disable-next-line
+      // tslint:disable-next-line: strict-type-predicates
       mongoose.connect(this.uri, mongoOptions)
         .then(() => {
           // Activation du mode debug si nécessaire

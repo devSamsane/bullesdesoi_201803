@@ -3,7 +3,8 @@ import * as _ from 'lodash';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 
-import { properties } from './../config/index';
+import { Properties } from '../interfaces/properties.interface';
+const properties: Properties = require('../config/index');
 
 
 export class Logger {
@@ -86,13 +87,13 @@ export class Logger {
           eol: fileLoggerTransport.eol,
           tailable: fileLoggerTransport.tailable,
           showLevel: fileLoggerTransport.true,
-          humanReadableUnhandledException: fileLoggerTransport.humanReadableUnhandledException
+          humanReadableUnhandledException:
+            fileLoggerTransport.humanReadableUnhandledException
         })
       ],
-      // tslint:disable-next-line
-      meta: true,
       expressFormat: true,
-      colorize: true
+      colorize: true,
+      meta: true // tslint:disable-line
     });
 
     return this.loggerExpress;

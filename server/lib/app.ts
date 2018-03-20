@@ -4,6 +4,7 @@ import * as http from 'http';
 import * as rp from 'request-promise';
 import { Request, Response, NextFunction } from 'express';
 import * as mongoose from 'mongoose';
+import * as cors from 'cors';
 
 import { ExpressMiddlewares } from './services/express-middlewares.service';
 import { Logger } from './services/logger.service';
@@ -90,10 +91,21 @@ export class Server {
 
   public api() {
     const router = express.Router();
+    // const corsOptions: cors.CorsOptions = {
+    //   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
+    //   credentials: true,
+    //   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    //   origin: 'http://localhost:4200',
+    //   preflightContinue: false
+    // };
 
-    // Création des api user
-    UserApi.create(router);
-    ServicesApi.create(router);
+    // router.use(cors(corsOptions));
+
+    // Exposition des api user
+    UserApi.exposeRoutes(router);
+
+    // Exposition des api de service
+    ServicesApi.exposeRoutes(router);
 
     this.app.use(router);
   }

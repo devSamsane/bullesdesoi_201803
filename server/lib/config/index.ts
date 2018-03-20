@@ -2,15 +2,17 @@ import * as path from 'path';
 import * as _ from 'lodash';
 import * as fs from 'fs';
 import * as glob from 'glob';
+import * as chalk from 'chalk';
 
 import { exportDefaultProperties } from './env/default.properties';
 import { exportDevProperties } from './env/development.properties';
 import { exportProdProperties } from './env/production.properties';
 import { exportAssets } from './assets/default.assets';
 
+
 class PropertiesConfiguration {
-  public env;
-  public propertiesFile;
+  static env: string = process.env.NODE_ENV;
+  static propertiesFile: any;
 
   constructor() { }
 
@@ -23,7 +25,7 @@ class PropertiesConfiguration {
    * @returns {array}
    * @memberof PropertiesConfiguration
    */
-  private getGlobbedPaths(globPatterns: any, excludes?: any): any {
+  private static getGlobbedPaths(globPatterns: any, excludes?: any): any {
     // Définition du regex de recherche
     const urlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
 
@@ -72,31 +74,37 @@ class PropertiesConfiguration {
    * Récupération des fichiers ts et associations dans un noeud spécifique du fichier properties
    * @method initGlobalPropertiesFiles
    * @private
-   * @param {object} initProperties
+   * @param {object} properties
    * @param {object} assets
    * @memberof PropertiesConfiguration
    */
-  private initGlobalPropertiesFiles(initProperties: any, assets: any): any {
-    // Initialisation du noeud de l'object
-    initProperties.files = {
+  private static initGlobalPropertiesFiles(properties: any, assets: any): any {
+    // Initialisation des nodes de l'object
+    properties.files = {
       server: {},
       client: {}
     };
 
     // Récupération du fichier GULP
-    initProperties.files.server.gulp = this.getGlobbedPaths(assets.server.gulpConfig);
+    properties.files.server.gulp = this.getGlobbedPaths(assets.server.gulpConfig);
 
     // Récupération des fichiers allTS
-    initProperties.files.server.allTS = this.getGlobbedPaths(assets.server.allTS);
+    properties.files.server.allTS = this.getGlobbedPaths(assets.server.allTS);
 
     // Récupération des fichiers de config des modules
-    initProperties.files.server.config = this.getGlobbedPaths(assets.server.config);
+    properties.files.server.configs = this.getGlobbedPaths(assets.server.config);
+
+    // Récupération des fichiers de stratégies passport
+    properties.files.server.strategies = this.getGlobbedPaths(assets.server.strategies);
 
     // Récupération des fichiers de models des modules
-    initProperties.files.server.models = this.getGlobbedPaths(assets.server.models);
+    properties.files.server.models = this.getGlobbedPaths(assets.server.models);
 
     // Récupération des routes des modules
-    initProperties.files.server.routes = this.getGlobbedPaths(assets.server.routes);
+    properties.files.server.routes = this.getGlobbedPaths(assets.server.routes);
+
+    // Récupération des policies
+    properties.files.server.policies = this.getGlobbedPaths(assets.server.policies);
 
   }
 
@@ -109,7 +117,7 @@ class PropertiesConfiguration {
    * @returns {object} properties dépendant de l'environnement
    * @memberof PropertiesConfiguration
    */
-  private selectPropertiesFileByEnv(envType: string): any {
+  private static selectPropertiesFileByEnv(envType: string): any {
 
     if (envType === 'development') {
       return exportDevProperties;
@@ -128,15 +136,37 @@ class PropertiesConfiguration {
    * @private
    * @memberof PropertiesConfiguration
    */
-  private validateEnvironmentDefinition(): any {
+  private static validateEnvironmentDefinition(): any {
     if (!process.env.NODE_ENV) {
       console.warn(`ALerte: Environnement d'exécution non définie`);
       console.warn(`Application par défaut de l'environnement de développement`);
       process.env.NODE_ENV = 'development';
     }
-    this.env = process.env.NODE_ENV;
 
     this.propertiesFile = this.selectPropertiesFileByEnv(this.env);
+  }
+
+  /**
+   * Validation de la présence des certificats pour activer le mode ssl
+   * @private
+   * @static
+   * @param {any} properties objet properties
+   * @returns {boolean}
+   * @memberof PropertiesConfiguration
+   */
+  private static validateSecureMode(properties): boolean {
+    if (!properties.server.secure || properties.server.secure.ssl !== true) {
+      return true;
+    }
+
+    const RSA_PRIVATE_KEY = fs.readFileSync('./server/lib/config/sslcerts/key.pem');
+    const RSA_PUBLIC_KEY = fs.readFileSync('./server/lib/config/sslcerts/cert.pem');
+
+    if (!RSA_PRIVATE_KEY || !RSA_PUBLIC_KEY) {
+      console.log(chalk.red('+ Error: Certicat ou clé manquants,retour à un non-SSL mode'));
+      console.log();
+      properties.server.secure.ssl = false;
+    }
   }
 
 
@@ -144,32 +174,39 @@ class PropertiesConfiguration {
    * Initialisation de l'objet properties
    * Contient l'ensemble des paramètres de l'application
    * @method initGlobalProperties
-   * @returns {*} initProperties
+   * @returns {*} properties
    * @memberof PropertiesConfiguration
    */
-  public initGlobalProperties(): any {
+  static initGlobalProperties(): any {
 
     // Vérification de la variables d'environnement
     this.validateEnvironmentDefinition();
 
     // Merge des fichiers de properties local + environnement
     // les properties de environnement écrasent celles de local
-    const initProperties = _.merge(exportDefaultProperties, this.propertiesFile);
+    const properties = _.merge(exportDefaultProperties, this.propertiesFile);
 
     // Enrichissement des properties avec les informations du package.json
     const pkg = require('../../../package.json');
-    initProperties.app.version = pkg.version;
+    properties.app.version = pkg.version;
 
     // Récupération des assets
     const assets = exportAssets;
 
     // Initialisation des assets
-    this.initGlobalPropertiesFiles(initProperties, assets);
+    this.initGlobalPropertiesFiles(properties, assets);
 
-    return initProperties;
+    // Vérification du mode SSL
+    this.validateSecureMode(properties);
+
+    // Exposition des utilitaires
+    properties.utils = {
+      getGlobbedPaths: this.getGlobbedPaths
+    };
+
+    return properties;
 
   }
 
 }
-
-export const properties = new PropertiesConfiguration().initGlobalProperties();
+module.exports = PropertiesConfiguration.initGlobalProperties();

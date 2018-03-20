@@ -1,4 +1,5 @@
-import { Schema } from 'mongoose';
+import { Schema, Error } from 'mongoose';
+import * as argon2 from 'argon2';
 
 export let userSchema: Schema = new Schema({
   email: {

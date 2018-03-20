@@ -7,9 +7,14 @@ const devProperties = {
     },
     server: {
       port: process.env.PORT || 3000,
-      host: process.env.HOST || '0.0.0.0',
-      domain: process.env.DOMAIN || 'http://localhost.com',
-      livereload: true
+      host: process.env.HOST || '127.0.0.1',
+      domain: process.env.DOMAIN || 'localhost',
+      livereload: true,
+      secure: {
+        ssl: true,
+        privateKey: '../sslcerts/key.pem',
+        certificate: '../sslcerts/cert.pem'
+      }
     },
     env: 'development',
     config: {
